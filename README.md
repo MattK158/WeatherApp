@@ -1,1 +1,1 @@
-Weather Application using python and flask 
+Used Python and the Flask framework to develop a weather application allowing the user to search for their location, calling a weather API, and then displaying many features such as weather for the week. The front end used HTML, CSS, and JavaScript.
