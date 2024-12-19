@@ -1,0 +1,18 @@
+.navbar-brand {
+    font-size: 1.5em;
+}
+
+.nav-city{
+    font-size: 1.5em;
+    padding-right: 40px;
+}
+
+.card{
+    box-shadow: -8px 10px 10px 0px rgb(0, 0, 0.01);
+}
+.hidden-content {
+    visibility: hidden;
+}
+.hidden-content {
+    visibility: hidden;
+}

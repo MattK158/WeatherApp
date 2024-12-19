@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather App</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/weather.css') }}">
+    </head>
+    <body style="background-color: #CED4DA;">
+    <!-- Navbar -->
+        <section id="navbar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #ADB5BD;">
+                <div class="container-fluid">
+                <a class="navbar-brand" href="/weather">UWeather</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+ 
+                    </ul>
+                    <span class="navbar-text nav-city">
+                        Hello from {{ city }}!
+                    </span>
+                    <form class="d-flex" method="post">
+                    <input class="form-control me-2 input" type="text" placeholder="Search City" id="city" name="city" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" style="background-color: #06D6A0;">Search</button>
+                    </form>
+                </div>
+                </div>
+            </nav>
+        </section>
+        <br>
+
+        <div class="container">
+            <section class="content">
+                <header>
+                    {% block header %}{% endblock %}
+                </header>
+                {% block content %}{% endblock %}
+            </section>
+        </div>
+    </body>
+    <script src="{{ url_for('static', filename='js/today.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+</html>

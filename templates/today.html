@@ -1,0 +1,53 @@
+{% extends 'weather.html' %}
+
+{% block header %}
+<h1>{% block title %}Today's Forecast:{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+{% if today %}
+<div class="container mx-auto"><!--prob also hold the hourly--> 
+    <div class="row">
+        <div class="col-sm">
+            <div class="card mx-auto" style="width: 18rem;"">
+                <img src="" class="img-fluid card-img-top mx-auto d-block" style="width: 50%;" id="image" alt="weather-code">
+                <div class="card-body">
+                    <h5 class="card-title" id="pyCity">{{ city }}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Temperature: {{ today.current.temperature_2m }}°F
+                    </li>
+                    <li class="list-group-item">
+                        Feels like: {{today.current.apparent_temperature}}°F
+                    </li>
+                    <li class="list-group-item" id="min-max-temp">
+                    </li>
+                    <li class="list-group-item">
+                        Humidity: {{ today.current.relative_humidity_2m }}%
+                    </li>
+                    <li class="list-group-item">
+                        Wind Speed: {{ today.current.wind_speed_10m }}mph
+                    </li>
+                    <li class="list-group-item" id="AQI">
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="hidden-content" style="margin-bottom: -100px;">
+        <p id="latitude">{{ today.latitude }}</p>
+        <p id="longitude">{{ today.longitude }}</p>
+        <p id="isDay" >{{ today.current.is_day }}</p>
+        <p id="today-code">{{ today.current.weather_code }}</p>
+    </div>
+
+    <h1>Hourly Forecast:</h1><br>
+
+    <div id="hourly-view" class="row">
+
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

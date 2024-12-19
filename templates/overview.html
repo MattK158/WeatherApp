@@ -1,0 +1,88 @@
+{% extends 'weather.html' %}
+
+{% block header %}
+<h1>{% block title %}{{navdate}}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+{% if today %}
+<div>
+
+<br>
+</div>
+
+<div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            <h2>Today's Forecast: </h2>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="{{ today_path[0] }}" class="card-img=top" id="image" alt="weather-code">
+                <div class="card-body">
+                    <h5 class="card-title">{{city}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Temperature: {{ today.current.temperature_2m }}°F
+                    </li>
+                    <li class="list-group-item">
+                        Humidity: {{ today.current.relative_humidity_2m }}%
+                    </li>
+                    <li class="list-group-item">
+                        Wind Speed: {{ today.current.wind_speed_10m }}mph
+                    </li>
+                </ul>
+                <div class="card-body">
+                    <a href="/weather/today" class="card-link">More info</a>
+                </div>
+            </div>
+            <br>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+            <h2>6-Day Forecast:</h2>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+        <div class="accordion-body">
+            <div class="row">
+                {% for day, max_temp, min_temp, precip, max_wind, day_of_week, ipath in zip(days, 
+                forecast.temperature_2m_max, forecast.temperature_2m_min, 
+                forecast.precipitation_sum, forecast.windspeed_10m_max, dow, images) %}
+                {% if loop.index0 != 6 %}
+                <div class="col-md-4 mb-md-3 mb-5">
+                    <div class="card mx-auto" style="width: 18rem;">
+                        <img src="{{ ipath }}" class="card-img=top" id="image" alt="weather-code">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ day_of_week }}</h5>
+                            <p class="card-text">{{ day }}</p>
+                        </div>
+                        <ul class="list-group list-group-flush text-center">
+                            <li class="list-group-item">High: {{ max_temp }}°F</li>
+                            <li class="list-group-item">Low: {{ min_temp }}°F</li>
+                        </ul>
+                    <div class="card-body text-center">
+                        <a href="/weather/daily" class="card-link">More info</a>
+                    </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>         
+        </div>
+      </div>
+    </div>
+   
+  </div>
+
+
+{% endif %}
+{% endblock %}

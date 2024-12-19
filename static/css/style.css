@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: content-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #6C757D;
+    color: #333;
+
+}
+header{
+    margin: 0;
+    padding: 0;
+    height: 5vh;
+    background-color: #4059AD;
+}
+#bround{
+    border-radius: 25px;
+    background: #6B9AC4;
+    padding: 100px;
+    width: 400px;
+    height: 240px;
+}
+#column{
+    float: left;
+    width: 33.33%;
+    height: 100px;
+    font-size: 2vw;
+}
+#row:after{
+    padding: 50px;
+    content:"";
+    display: table;
+    clear: both;
+}
+
+.home {
+    display:block ;
+}
+
+/*Search css start*/
+
+.search-content {
+    width: 600px;
+    background: #fff;
+    margin: 200px auto 0;
+    border-radius:  5px;
+}
+
+.search-content .row {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+
+}
+
+.row .input {
+    flex: 1;
+    height: 50px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.search-results ul{
+    border-top: 1px solid #999;
+    padding: 15px 10px;
+
+}
+
+.search-results ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.search-results ul li:hover {
+    background: #e9f3ff;
+}
+/*Search css end*/
+
+/*Result page css Start*/
+.result-weather {
+    display: none;
+    height: 100%;
+}
+
+.result-weather .search-header {
+    background: #262a2f;
+    height: 5.5%;
+}
+
+.result-weather .location-weather {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    
+}
+
+.location-weather .static-info {
+    flex: 1;
+    height: 50%;
+    background: #bd1616;
+    margin: 10px 5px 0 10px;
+    border-radius: 4px;
+}
+
+.location-weather .dynamic-map {
+    height: 50%;
+    flex: 1;
+    background: #1077f5;
+    margin: 10px 10px 0 5px;
+    border-radius: 4px;
+}
+
+.result-weather .forecast {
+    height: 44.5%;
+}
+
+.forecast .forecast-select {
+    height: 15%;
+    width: 10%;
+    background: #333;
+    margin: 0 0 1% 5%;
+}
+
+.forecast .forecast-display {
+    height: 80.5%;
+    width: 100%;
+    background: #6b3572;
+    margin: 0 0 0 0;
+}
+
+.weather-radar-frame {
+    width: 100%; 
+    height: 100%;
+}
+/*Result page css End*/

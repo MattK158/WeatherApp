@@ -1,0 +1,27 @@
+{% extends 'weather.html' %}
+
+{% block header %}
+  <h1>{% block title %}6 Day Forecast{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">Date</div>
+        <div class="col">Max Temperature (F)</div>
+        <div class="col">Min Temperature (F)</div>
+        <div class="col">Precipitation (inch)</div>
+        <div class="col">Max Wind Speed (mph)</div>
+    </div>
+    {% for day, max_temp, min_temp, precip, max_wind in 
+        zip(days, forecast.temperature_2m_max, forecast.temperature_2m_min, forecast.precipitation_sum, forecast.windspeed_10m_max) %}
+    <div class="row">
+        <div class="col">{{ day }}</div>
+        <div class="col">{{ max_temp }}</div>
+        <div class="col">{{ min_temp }}</div>
+        <div class="col">{{ precip }}</div>
+        <div class="col">{{ max_wind }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
