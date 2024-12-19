@@ -1,2 +1,1 @@
-# Weather APP
-# Test commit
+Weather Application using python and flask 
